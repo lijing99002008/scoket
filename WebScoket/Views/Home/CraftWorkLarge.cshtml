@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+    string text = ((string)ViewBag.Text).Replace("\r", "<br />");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CraftWorkLarge</title>
+</head>
+<body>
+    <div class="h3 text-center">
+        @text
+    </div>
+    <div>
+        @if (!String.IsNullOrWhiteSpace(ViewBag.FileName))
+        {
+            <img src="~/uploads/@ViewBag.FileName" style="width:100%"/>
+        }
+    </div>
+
+</body>
+</html>

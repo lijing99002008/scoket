@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebScoket.Models.CraftWork>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CraftWorkList</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("创建", "CraftWorkCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CraftDescribe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CraftImage1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CraftImage2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CraftImage3)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CraftDescribe)
+            </td>
+            <td>
+               <img style="width:100px" src="~/uploads/@item.CraftImage1" />
+            </td>
+            <td>
+                <img style="width:100px" src="~/uploads/@item.CraftImage2" />
+            </td>
+            <td>
+                <img style="width:100px" src="~/uploads/@item.CraftImage3" />
+            </td>
+            <td>
+                @Html.ActionLink("详细", "CraftWork", new { item=item.ItemNum }) |
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

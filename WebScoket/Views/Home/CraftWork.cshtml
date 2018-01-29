@@ -1,0 +1,75 @@
+﻿@model WebScoket.Models.CraftWork
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @if (Model != null)
+    {
+        <div class="container_fluid" style="width:98%;margin:auto 5px">
+            <div class="col-md-5">
+                <div class="h2 col-md-12">
+                    <h2>
+                        @Html.DisplayFor(model => model.ItemNum)
+                    </h2>
+                </div>
+                <div >
+                    <div class="h3 col-md-12" style="height:300px;overflow:auto;">
+                        <a href="~/home/CraftWorkLarge?item=@Model.ItemNum">
+                            <lable>@Model.CraftDescribe</lable>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="~/home/CraftWorkLarge?fileName=@Model.CraftImage2">
+                            <div>
+                                <img id="ImgPr2" style="width:100%" src="~/uploads/@Model.CraftImage2" />
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="~/home/CraftWorkLarge?fileName=@Model.CraftImage3">
+
+                            <div>
+                                <img id="ImgPr3" style="width:100%" src="~/uploads/@Model.CraftImage3" />
+                            </div>
+                        </a>
+                    </div>
+                    <br />
+
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div>
+                    <a href="~/home/CraftWorkLarge?fileName=@Model.CraftImage1">
+
+                        <div>
+                            <img id="ImgPr1" style="width:100%" src="~/uploads/@Model.CraftImage1" />
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2>没有内容</h2>
+
+    }
+</body>
+</html>
